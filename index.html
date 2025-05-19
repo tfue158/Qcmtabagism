@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz sur le Tabagisme - CM2</title>
+  <style>
+    body {
+      font-family: "Comic Sans MS", sans-serif;
+      background-color: #f0f8ff;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .question {
+      background-color: #dff0d8;
+      border: 2px solid #3c763d;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background-color: #3498db;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .result {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quiz CM2 : Le Tabagisme</h1>
+
+  <div class="question" id="q1">
+    <p>1. Qu’est-ce que le tabac ?</p>
+    <button onclick="checkAnswer('q1', 'B', this)">A) Une boisson</button>
+    <button onclick="checkAnswer('q1', 'B', this)">B) Une plante utilisée pour fabriquer des cigarettes</button>
+    <button onclick="checkAnswer('q1', 'B', this)">C) Un légume</button>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" id="q2">
+    <p>2. Que contient la fumée de cigarette ?</p>
+    <button onclick="checkAnswer('q2', 'B', this)">A) De l’oxygène pur</button>
+    <button onclick="checkAnswer('q2', 'B', this)">B) Des produits dangereux pour la santé</button>
+    <button onclick="checkAnswer('q2', 'B', this)">C) Du chocolat</button>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" id="q3">
+    <p>3. Quel organe est le plus touché par le tabac ?</p>
+    <button onclick="checkAnswer('q3', 'B', this)">A) L’estomac</button>
+    <button onclick="checkAnswer('q3', 'B', this)">B) Les poumons</button>
+    <button onclick="checkAnswer('q3', 'B', this)">C) Le cœur</button>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" id="q4">
+    <p>4. À partir de quel âge est-il interdit de vendre du tabac ?</p>
+    <button onclick="checkAnswer('q4', 'C', this)">A) 12 ans</button>
+    <button onclick="checkAnswer('q4', 'C', this)">B) 16 ans</button>
+    <button onclick="checkAnswer('q4', 'C', this)">C) 18 ans</button>
+    <div class="result"></div>
+  </div>
+
+  <div class="question" id="q5">
+    <p>5. Pourquoi est-il dangereux d’être près de quelqu’un qui fume ?</p>
+    <button onclick="checkAnswer('q5', 'B', this)">A) Parce que ça sent mauvais</button>
+    <button onclick="checkAnswer('q5', 'B', this)">B) Parce qu’on peut aussi respirer la fumée (tabagisme passif)</button>
+    <button onclick="checkAnswer('q5', 'B', this)">C) Parce que la fumée fait éternuer</button>
+    <div class="result"></div>
+  </div>
+
+  <script>
+    function checkAnswer(questionId, correctAnswer, btn) {
+      const buttons = document.querySelectorAll(`#${questionId} button`);
+      buttons.forEach(button => button.disabled = true);
+
+      const answer = btn.textContent[0];
+      const resultDiv = document.querySelector(`#${questionId} .result`);
+      if (answer === correctAnswer) {
+        resultDiv.textContent = "✅ Bonne réponse !";
+        resultDiv.style.color = "green";
+      } else {
+        resultDiv.textContent = "❌ Mauvaise réponse.";
+        resultDiv.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
